@@ -32,6 +32,7 @@ class postController extends Controller
     }
     function delete($id){
         Post::where('id',$id)->delete();
+        Comment::where('post_id',$id)->delete();
         return redirect('/show');
     }
     function dia(Post $post){
